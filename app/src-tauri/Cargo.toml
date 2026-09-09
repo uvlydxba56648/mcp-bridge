@@ -1,0 +1,31 @@
+[package]
+name = "app"
+version = "0.1.0"
+description = "MCP Bridge for JetBrains"
+authors = ["you"]
+license = ""
+repository = ""
+edition = "2021"
+rust-version = "1.77.2"
+
+[lib]
+name = "app_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.6.3" }
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+log = "0.4"
+tauri = { version = "2.11.3", features = ["tray-icon", "image-png"] }
+tauri-plugin-log = "2"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "native-tls"] }
+bridge-core = { path = "../bridge-core" }
+
+# 生产构建默认内嵌前端;`tauri dev` 会以 --no-default-features 运行(走 devUrl)
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]

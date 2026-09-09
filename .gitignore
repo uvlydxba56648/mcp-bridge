@@ -1,0 +1,13 @@
+# 依赖与构建产物
+node_modules/
+target/
+dist/
+app/dist/
+
+# 本地预览/设计稿(不入库)
+screenshots/
+mockups/
+
+# 杂项
+*.log
+.DS_Store
