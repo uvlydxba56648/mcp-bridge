@@ -2,7 +2,7 @@
 
 ## 方式一:GitHub Actions(推荐,零本机依赖)
 
-仓库已带工作流 `app/.github/workflows/release.yml`:
+仓库已带工作流 `.github/workflows/release.yml`(Windows / macOS arm64 / macOS x86_64 / Linux 四路并行):
 
 1. 把仓库推到 GitHub;
 2. 打 tag:`git tag v0.1.0 && git push --tags`(或 Actions 页面手动 Run);
